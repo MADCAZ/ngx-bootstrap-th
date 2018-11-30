@@ -12,6 +12,10 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "lib": ["es2017", "dom"]
+    "lib": ["es2017", "dom"],
+    "paths":{
+        "ngx-bootstrap/locale": ["src/locale/public_api"],
+        "ngx-bootstrap/locale/*": ["src/locale/public_api/*"]
+    }
   }
 }

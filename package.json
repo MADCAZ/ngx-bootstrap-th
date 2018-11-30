@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap-base",
+  "name": "ngx-bootstrap-th",
   "version": "3.1.2",
   "description": "Native Angular Bootstrap Components",
   "private": true,
@@ -64,16 +64,16 @@
     "angular2",
     "twitter-bootstrap"
   ],
-  "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
+  "author": "Suriyapong Thinsuk <thinsuk.s@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/valor-software/ngx-bootstrap.git"
+    "url": "git@github.com:zMADCATz/ngx-bootstrap-th.git"
   },
   "bugs": {
-    "url": "https://github.com/valor-software/ngx-bootstrap/issues"
+    "url": "https://github.com/zMADCATz/ngx-bootstrap-th/issues"
   },
-  "homepage": "https://github.com/valor-software/ngx-bootstrap#readme",
+  "homepage": "https://github.com/zMADCATz/ngx-bootstrap-th#readme",
   "peerDependencies": {
     "@angular/common": ">=6.0.0",
     "@angular/core": ">=6.0.0"

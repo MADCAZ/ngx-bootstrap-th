@@ -4,7 +4,7 @@ import { isFunction } from '../utils/type-checks';
 import { DateFormatterOptions, DateFormatterFn } from '../types';
 
 export let formatFunctions: {
-  [key: string]: (date: Date, locale: Locale, isUTC?: boolean, offset?: number) => string;
+    [key: string]: (date: Date, locale: Locale, isUTC?: boolean, offset?: number) => string;
 } = {};
 export let formatTokenFunctions: { [key: string]: DateFormatterFn } = {};
 
@@ -16,57 +16,82 @@ export const formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DD
 // ordinal:  'Mo'
 // callback: function () { this.month() + 1 }
 export function addFormatToken(token: string,
-                               padded: [string, number, boolean],
-                               ordinal: string,
-                               callback: DateFormatterFn): void {
+    padded: [string, number, boolean],
+    ordinal: string,
+    callback: DateFormatterFn): void {
 
-  if (token) {
-    formatTokenFunctions[token] = callback;
-  }
+    if (token) {
+        formatTokenFunctions[token] = callback;
+    }
 
-  if (padded) {
-    formatTokenFunctions[padded[0]] = function (): string {
-      return zeroFill(callback.apply(null, arguments), padded[1], padded[2]);
-    };
-  }
+    if (padded) {
+        formatTokenFunctions[padded[0]] = function (): string {
+            return zeroFill(callback.apply(null, arguments), padded[1], padded[2]);
+        };
+    }
 
-  if (ordinal) {
-    formatTokenFunctions[ordinal] = function (date: Date, opts: DateFormatterOptions): string {
-      return opts.locale.ordinal(callback.apply(null, arguments), token);
-    };
-  }
+    if (ordinal) {
+        formatTokenFunctions[ordinal] = function (date: Date, opts: DateFormatterOptions): string {
+            return opts.locale.ordinal(callback.apply(null, arguments), token);
+        };
+    }
 }
 
 export function makeFormatFunction(format: string):
-  (date: Date, locale: Locale, isUTC?: boolean, offset?: number) => string {
+    (date: Date, locale: Locale, isUTC?: boolean, offset?: number) => string {
 
-  const array: string[] = format.match(formattingTokens);
-  const length = array.length;
+    const array: string[] = format.match(formattingTokens);
+    const length = array.length;
 
-  const formatArr: string[] | DateFormatterFn[] = new Array(length);
+    const formatArr: string[] | DateFormatterFn[] = new Array(length);
 
-  for (let i = 0; i < length; i++) {
-    formatArr[i] = formatTokenFunctions[array[i]]
-      ? formatTokenFunctions[array[i]]
-      : removeFormattingTokens(array[i]);
-  }
-
-  return function (date: Date, locale: Locale, isUTC: boolean, offset = 0): string {
-    let output = '';
-    for (let j = 0; j < length; j++) {
-      output += isFunction(formatArr[j])
-        ? (formatArr[j] as DateFormatterFn).call(null, date, {format, locale, isUTC, offset})
-        : formatArr[j];
+    for (let i = 0; i < length; i++) {
+        formatArr[i] = formatTokenFunctions[array[i]]
+            ? formatTokenFunctions[array[i]]
+            : removeFormattingTokens(array[i]);
     }
 
-    return output;
-  };
+    return function (date: Date, locale: Locale, isUTC: boolean, offset = 0): string {
+        let output = '';
+        for (let j = 0; j < length; j++) {
+            output += isFunction(formatArr[j])
+                ? (formatArr[j] as DateFormatterFn).call(null, date, { format, locale, isUTC, offset })
+                : formatArr[j];
+        }
+
+        if (locale._abbr == 'th') {
+
+            let year = (Number(date.getFullYear()) + 543).toString();
+            console.log(format);
+            console.log(format.indexOf('YYYY'));
+            if (format.indexOf('YYYY') != -1) {
+                let regEx = /YYYY/g;
+                let match;
+                while ((match = regEx.exec(format)) != null) {
+                    output = output.substr(0, match.index) + year + output.substr(match.index + year.length);
+                    format = format.substr(0, match.index) + year + format.substr(match.index + year.length);
+                }
+            }
+
+            // switch (format) {
+            //     case 'DD/MM/YYYY':
+            //         var dateSplit = output.split('/');
+            //         output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
+            //         break;
+            //     case 'MM/DD/YYYY':
+            //         var dateSplit = output.split('/');
+            //         output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
+            //         break;
+            // }
+        }
+        return output;
+    };
 }
 
 function removeFormattingTokens(input: string): string {
-  if (input.match(/\[[\s\S]/)) {
-    return input.replace(/^\[|\]$/g, '');
-  }
+    if (input.match(/\[[\s\S]/)) {
+        return input.replace(/^\[|\]$/g, '');
+    }
 
-  return input.replace(/\\/g, '');
+    return input.replace(/\\/g, '');
 }
