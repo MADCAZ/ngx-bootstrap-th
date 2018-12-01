@@ -60,29 +60,19 @@ export function makeFormatFunction(format: string):
         }
 
         if (locale._abbr == 'th') {
-
-            let year = (Number(date.getFullYear()) + 543).toString();
-            console.log(format);
-            console.log(format.indexOf('YYYY'));
-            if (format.indexOf('YYYY') != -1) {
-                let regEx = /YYYY/g;
-                let match;
-                while ((match = regEx.exec(format)) != null) {
-                    output = output.substr(0, match.index) + year + output.substr(match.index + year.length);
-                    format = format.substr(0, match.index) + year + format.substr(match.index + year.length);
-                }
+            switch (format) {
+                case 'YYYY':
+                    output = (Number(output) + 543).toString();
+                    break;
+                case 'DD/MM/YYYY':
+                    var dateSplit = output.split('/');
+                    output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
+                    break;
+                case 'MM/DD/YYYY':
+                    var dateSplit = output.split('/');
+                    output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
+                    break;
             }
-
-            // switch (format) {
-            //     case 'DD/MM/YYYY':
-            //         var dateSplit = output.split('/');
-            //         output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
-            //         break;
-            //     case 'MM/DD/YYYY':
-            //         var dateSplit = output.split('/');
-            //         output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
-            //         break;
-            // }
         }
         return output;
     };
