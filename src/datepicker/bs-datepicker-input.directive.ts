@@ -85,7 +85,7 @@ export class BsDatepickerInputDirective
 
   _setInputValue(value: Date): void {
     if (this._localeService.currentLocale == 'th' && value) {
-      let dateProcess = new Date(value);
+      const dateProcess = new Date(value);
       if (dateProcess.getFullYear() > 2200) {
         value = new Date(dateProcess.getFullYear() - 543, dateProcess.getMonth(), dateProcess.getDate());
       }
@@ -144,7 +144,7 @@ export class BsDatepickerInputDirective
       }
       this._value = parseDate(value, this._picker._config.dateInputFormat, this._localeService.currentLocale);
       if (this._localeService.currentLocale == 'th') {
-                let dateProcess = new Date(this._value);
+                const dateProcess = new Date(this._value);
                 if (dateProcess.getFullYear() > 2200) {
                     this._value = new Date(dateProcess.getFullYear() - 543, dateProcess.getMonth(), dateProcess.getDate());
                 }
