@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap-th/dropdown';
 
 import { DocsModule } from '../../docs';
 import { DropdownSectionComponent } from './dropdown-section.component';

@@ -15,8 +15,8 @@ npm install ngx-bootstrap bootstrap --save
 Open the module file where you want to include ngx-bootstrap (most probably `app.module.ts`) and import either specific ngx-bootstrap modules by listing them in the import statement. Then in the import array of the Angular module add:
 
 ```typescript
-import { AlertModule } from 'ngx-bootstrap/alert';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { AlertModule } from 'ngx-bootstrap-th/alert';
+import { ModalModule } from 'ngx-bootstrap-th/modal';
 ...
 
 @NgModule({

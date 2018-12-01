@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap-th/datepicker';
 // or
-import { BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [BsDatepickerModule.forRoot(),...]

@@ -97,7 +97,7 @@ In `styles.scss` add the following:
 Open `src/app/app.module.ts` and add
 
 ```typescript
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap-th/dropdown';
 ...
 
 @NgModule({

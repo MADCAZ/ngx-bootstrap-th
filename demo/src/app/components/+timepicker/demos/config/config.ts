@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TimepickerConfig } from 'ngx-bootstrap/timepicker';
+import { TimepickerConfig } from 'ngx-bootstrap-th/timepicker';
 
 // such override allows to keep some initial values
 

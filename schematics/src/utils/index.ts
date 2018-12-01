@@ -124,7 +124,7 @@ export function createTestApp(runner: SchematicTestRunner, appOptions = {}): Uni
   });
 
   return runner.runExternalSchematic('@schematics/angular', 'application',
-    {...appOptions, name: 'ngx-bootstrap'}, workspaceTree);
+    {...appOptions, name: 'ngx-bootstrap-th'}, workspaceTree);
 }
 
 export function removePackageJsonDependency(tree: Tree, dependencyName: string) {

@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
 
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 import { BsDropdownContainerComponent } from './bs-dropdown-container.component';
 import { BsDropdownMenuDirective } from './bs-dropdown-menu.directive';
 import { BsDropdownToggleDirective } from './bs-dropdown-toggle.directive';

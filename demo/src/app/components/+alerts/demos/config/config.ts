@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertConfig } from 'ngx-bootstrap/alert';
+import { AlertConfig } from 'ngx-bootstrap-th/alert';
 
 // such override allows to keep some initial values
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AccordionConfig } from 'ngx-bootstrap/accordion';
+import { AccordionConfig } from 'ngx-bootstrap-th/accordion';
 
 // such override allows to keep some initial values
 

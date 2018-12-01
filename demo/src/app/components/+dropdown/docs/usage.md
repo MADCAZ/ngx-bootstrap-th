@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap-th/dropdown';
 // or
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [BsDropdownModule.forRoot(),...]

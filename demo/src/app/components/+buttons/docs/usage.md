@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ButtonsModule } from 'ngx-bootstrap-th/buttons';
 // or
-import { ButtonsModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [ButtonsModule.forRoot(),...]

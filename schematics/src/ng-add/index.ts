@@ -39,7 +39,7 @@ export default function (options: Schema): Rule {
 
 function addModuleOfComponent(projectName: string | undefined, componentName: string) {
 
-  const bsName = 'ngx-bootstrap';
+  const bsName = 'ngx-bootstrap-th';
 
   const components: { [key: string]: { moduleName: string; link: string } } = {
     accordion:   { moduleName: 'AccordionModule',    link: `${bsName}/accordion` },
@@ -85,7 +85,7 @@ function addPackageJsonDependencies(): Rule {
   return (host: Tree, context: SchematicContext) => {
     const dependencies: { name: string; version: string }[] = [
       { name: 'bootstrap', version: '4.1.1' },
-      { name: 'ngx-bootstrap', version: '3.0.1' }
+      { name: 'ngx-bootstrap-th', version: '3.0.1' }
     ];
 
     dependencies.forEach(dependency => {

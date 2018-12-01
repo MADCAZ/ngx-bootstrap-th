@@ -8,7 +8,7 @@ const currentVersionFilePath = 'assets/json/current-version.json';
 
 const demoSrcDir = 'demo/src';
 const demoDistDir = 'demo/dist/browser';
-const hostname = 'ngx-bootstrap';
+const hostname = 'ngx-bootstrap-th';
 
 let prevVersion;
 const newVersion = require('../package.json').version;

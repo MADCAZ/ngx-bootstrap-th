@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { TypeaheadMatch } from 'ngx-bootstrap-th/typeahead';
 import { mergeMap } from 'rxjs/operators';
 
 @Component({

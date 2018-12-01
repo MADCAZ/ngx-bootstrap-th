@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Injector, ReflectiveInjector } from '@angular/core';
-import { isBs3 } from 'ngx-bootstrap/utils';
+import { isBs3 } from 'ngx-bootstrap-th/utils';
 
 import { demoComponentContent } from './progressbar-section.list';
 import { ContentSection } from '../../docs/models/content-section.model';

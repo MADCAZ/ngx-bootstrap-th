@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+import { TypeaheadMatch } from 'ngx-bootstrap-th/typeahead/typeahead-match.class';
 
 @Component({
   selector: 'demo-typeahead-on-select',

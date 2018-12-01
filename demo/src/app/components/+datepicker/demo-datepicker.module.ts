@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { defineLocale, LocaleData } from 'ngx-bootstrap/chronos';
-import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
+import { defineLocale, LocaleData } from 'ngx-bootstrap-th/chronos';
+import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap-th/datepicker';
 import {
   arLocale, bgLocale, csLocale, daLocale, deLocale, enGbLocale, esDoLocale, esLocale, esUsLocale, frLocale, heLocale,
   hiLocale, fiLocale, glLocale, huLocale, idLocale, itLocale, jaLocale, koLocale, ltLocale, mnLocale, nbLocale,
   nlBeLocale, nlLocale, plLocale, ptBrLocale, ruLocale, roLocale, skLocale, slLocale, svLocale, thLocale, trLocale,
   zhCnLocale
-} from 'ngx-bootstrap/locale';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+} from 'ngx-bootstrap-th/locale';
+import { TabsModule } from 'ngx-bootstrap-th/tabs';
 
 import { DocsModule } from '../../docs';
 import { DatepickerSectionComponent } from './datepicker-section.component';

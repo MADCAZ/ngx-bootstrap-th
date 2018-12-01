@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TimeUnit } from 'ngx-bootstrap/chronos';
-import { Action } from 'ngx-bootstrap/mini-ngrx';
+import { TimeUnit } from 'ngx-bootstrap-th/chronos';
+import { Action } from 'ngx-bootstrap-th/mini-ngrx';
 import {
   BsDatepickerViewMode,
   BsViewNavigationEvent,

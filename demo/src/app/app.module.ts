@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap-th/dropdown';
 
 import { environment } from '../environments/environment';
 import { ngdoc } from '../ng-api-doc';
@@ -27,7 +27,7 @@ import { ThemeStorage } from './theme/theme-storage';
     RouterModule.forRoot(routes, { useHash: environment.useHash }),
     NgxPageScrollModule,
     BsDropdownModule.forRoot(),
-    BrowserModule.withServerTransition({ appId: 'ngx-bootstrap' })
+    BrowserModule.withServerTransition({ appId: 'ngx-bootstrap-th' })
   ],
   providers: [ThemeStorage, StyleManager, { provide: NgApiDoc, useValue: ngdoc }],
   bootstrap: [AppComponent]

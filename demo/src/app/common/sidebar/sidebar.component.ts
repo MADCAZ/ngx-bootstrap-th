@@ -1,6 +1,6 @@
 import { Component, Inject, OnDestroy, Renderer } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { isBs3, setTheme } from 'ngx-bootstrap/utils';
+import { isBs3, setTheme } from 'ngx-bootstrap-th/utils';
 import { routes } from '../../app.routing';
 import { StyleManager } from '../../theme/style-manager';
 import { ThemeStorage } from '../../theme/theme-storage';

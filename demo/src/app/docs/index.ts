@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TabsModule } from 'ngx-bootstrap-th/tabs';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 /* common */
 import { AppFooterComponent } from '../common/app-footer/app-footer.component';

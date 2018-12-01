@@ -1,5 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap-th/modal';
 
 @Component({
   selector: 'demo-modal-with-popups',

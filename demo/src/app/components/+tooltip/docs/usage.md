@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from 'ngx-bootstrap-th/tooltip';
 // or
-import { TooltipModule } from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [TooltipModule.forRoot(),...]

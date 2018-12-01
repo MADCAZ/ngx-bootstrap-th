@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselModule } from 'ngx-bootstrap-th/carousel';
 // or
-import { CarouselModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [CarouselModule.forRoot(),...]

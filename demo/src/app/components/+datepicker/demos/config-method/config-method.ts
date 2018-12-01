@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { BsDaterangepickerDirective } from 'ngx-bootstrap/datepicker';
+import { BsDaterangepickerDirective } from 'ngx-bootstrap-th/datepicker';
 
 @Component({
   selector: 'demo-datepicker-config-method',

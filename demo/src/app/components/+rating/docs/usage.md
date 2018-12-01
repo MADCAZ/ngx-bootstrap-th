@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { RatingModule } from 'ngx-bootstrap/rating';
+import { RatingModule } from 'ngx-bootstrap-th/rating';
 // or
-import { RatingModule } from 'ngx-bootstrap';
+import { RatingModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [RatingModule.forRoot(),...]

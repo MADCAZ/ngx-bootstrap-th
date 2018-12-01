@@ -1,7 +1,7 @@
 // RECOMMENDED
-import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AccordionModule } from 'ngx-bootstrap-th/accordion';
 // or
-import { AccordionModule } from 'ngx-bootstrap';
+import { AccordionModule } from 'ngx-bootstrap-th';
 
 @NgModule({
   imports: [AccordionModule.forRoot(),...]

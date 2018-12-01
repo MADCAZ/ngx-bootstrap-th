@@ -76,7 +76,7 @@ module.exports = function (config) {
       concurrency: 2,
       captureTimeout: 60000,
       sauceLabs: {
-        testName: 'ngx-bootstrap',
+        testName: 'ngx-bootstrap-th',
         build: process.env.TRAVIS_JOB_NUMBER,
         tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
        // retryLimit: 5,
