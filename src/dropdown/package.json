@@ -1,6 +1,6 @@
 {
-  "name": "ngx-bootstrap/dropdown",
-  "version": "3.1.2",
+  "name": "ngx-bootstrap-th/dropdown",
+  "version": "3.1.4",
   "description": "Native Angular Bootstrap Components",
   "private": true,
   "ngPackage": {
