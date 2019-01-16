@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap-th/datepicker';
+import { BsLocaleService } from 'ngx-bootstrap-th/datepicker';
 import { listLocales } from 'ngx-bootstrap-th/chronos';
 
 @Component({
