@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TypeaheadConfig } from 'ngx-bootstrap/typeahead';
+import { TypeaheadConfig } from 'ngx-bootstrap-th/typeahead';
 
 // such override allows to keep some initial values
 export function getTypeaheadConfig(): TypeaheadConfig {

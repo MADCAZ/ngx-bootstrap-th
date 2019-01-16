@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap-th/datepicker';
 
 @Component({
   selector: 'demo-datepicker-min-mode',

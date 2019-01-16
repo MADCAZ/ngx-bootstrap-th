@@ -39,6 +39,9 @@ export function addFormatToken(token: string,
 
 export function makeFormatFunction(format: string):
     (date: Date, locale: Locale, isUTC?: boolean, offset?: number) => string {
+    
+    format = format.replace(/YYYY/g, 'BBBB');
+    format = format.replace(/YY/g, 'BB');
 
     const array: string[] = format.match(formattingTokens);
     const length = array.length;
@@ -52,6 +55,7 @@ export function makeFormatFunction(format: string):
     }
 
     return function (date: Date, locale: Locale, isUTC: boolean, offset = 0): string {
+
         let output = '';
         for (let j = 0; j < length; j++) {
             output += isFunction(formatArr[j])
@@ -59,21 +63,16 @@ export function makeFormatFunction(format: string):
                 : formatArr[j];
         }
 
+        let year = date.getFullYear();
+
         if (locale._abbr == 'th') {
-            switch (format) {
-                case 'YYYY':
-                    output = (Number(output) + 543).toString();
-                    break;
-                case 'DD/MM/YYYY':
-                    var dateSplit = output.split('/');
-                    output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
-                    break;
-                case 'MM/DD/YYYY':
-                    var dateSplit = output.split('/');
-                    output = dateSplit[0] + '/' + dateSplit[1] + '/' + (Number(dateSplit[2]) + 543).toString();
-                    break;
-            }
+            output = output.replace(/BBBB/g, (year + 543).toString());
+            output = output.replace(/BB/g, ((year + 543).toString()).substr((year + 543).toString().length -2));
+        } else {
+            output = output.replace(/BBBB/g, (year).toString());
+            output = output.replace(/BB/g, ((year).toString()).substr((year).toString().length -2));
         }
+        
         return output;
     };
 }
