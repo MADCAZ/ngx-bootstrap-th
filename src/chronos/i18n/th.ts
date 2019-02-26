@@ -60,5 +60,6 @@ export const thLocale: LocaleData = {
     MM: '%d เดือน',
     y: '1 ปี',
     yy: '%d ปี'
-  }
+  },
+  invalidDate: 'รูปแบบวันที่ไม่ถูกต้อง'
 };
