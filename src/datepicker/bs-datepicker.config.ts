@@ -23,10 +23,20 @@ export class BsDatepickerConfig implements DatepickerRenderOptions {
   maxDate?: Date;
 
   daysDisabled?: number[];
+
+  /**
+   * Disable specific dates
+   */
+  datesDisabled?: Date[];
   /**
    * Makes dates from other months active
    */
   selectFromOtherMonth?: boolean;
+
+  /**
+   * Makes dates from other months active
+   */
+  selectWeek?: boolean;
 
   /**
    * Add class to current day
@@ -34,7 +44,7 @@ export class BsDatepickerConfig implements DatepickerRenderOptions {
   customTodayClass?: string;
 
   /**
-   * Defaut mode for all date pickers
+   * Default mode for all date pickers
    */
   minMode?: BsDatepickerViewMode;
 

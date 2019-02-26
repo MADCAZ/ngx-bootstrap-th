@@ -9,6 +9,9 @@ import { DemoDatepickerConfigMethodComponent } from './demos/config-method/confi
 import { DemoDatePickerConfigObjectComponent } from './demos/config-object/config-object';
 import { DemoDatePickerCustomFormatComponent } from './demos/custom-format/custom-format';
 import { DemoDatepickerDateInitialStateComponent } from './demos/date-initial-state/date-initial-state';
+import { DemoDatepickerDaysDisabledComponent } from './demos/disable-days/disable-days';
+import { DemoDatepickerDatesDisabledComponent } from './demos/disable-dates/disable-dates';
+import { DemoDatepickerInlineComponent } from './demos/inline-datepicker/inline-datepicker.component';
 import { DemoDatepickerDisabledComponent } from './demos/disabled/disabled.component';
 import { DemoDatepickerFormsComponent } from './demos/forms/forms.component';
 import { DemoDatepickerHideOnScrollComponent } from './demos/hide-on-scroll/hide-on-scroll';
@@ -17,9 +20,11 @@ import { DemoDatepickerMinModeComponent } from './demos/min-mode/min-mode.compon
 import { DemoDatepickerOutsideClickComponent } from './demos/outside-click/outside-click';
 import { DemoDatepickerPlacementComponent } from './demos/placement/placement';
 import { DemoDatepickerReactiveFormsComponent } from './demos/reactive-forms/reactive-forms.component';
+
 import {
   DemoDatePickerSelectDatesFromOtherMonthsComponent
 } from './demos/select-dates-from-other-months/select-dates-from-other-months';
+import { DemoDatePickerSelectWeekComponent } from './demos/select-week/select-week';
 import { DemoDatepickerCustomTodayClassComponent } from './demos/custom-today-class/custom-today-class.component';
 import { DemoDatepickerTriggersCustomComponent } from './demos/triggers-custom/triggers-custom';
 import { DemoDatepickerTriggersManualComponent } from './demos/triggers-manual/triggers-manual';
@@ -32,8 +37,6 @@ import {
   NgApiDocComponent,
   NgApiDocConfigComponent
 } from '../../docs/api-docs';
-import { DemoDatepickerDaysDisabledComponent } from './demos/disable-days/disable-days';
-
 
 export const demoComponentContent: ContentSection[] = [
   {
@@ -68,6 +71,14 @@ export const demoComponentContent: ContentSection[] = [
           </ul>
         `,
         outlet: DemoDatepickerBasicComponent
+      },
+      {
+        title: 'Inline Datepicker',
+        anchor: 'inline-datepicker',
+        component: require('!!raw-loader?lang=typescript!./demos/inline-datepicker/inline-datepicker.component.ts'),
+        html: require('!!raw-loader?lang=markup!./demos/inline-datepicker/inline-datepicker.component.html'),
+        description: `<p>with initial state set by <code>bsInlineValue</code> property</p>`,
+        outlet: DemoDatepickerInlineComponent
       },
       {
         title: 'Initial state',
@@ -162,6 +173,16 @@ export const demoComponentContent: ContentSection[] = [
           <p>In the following example <code>daysDisabled</code> is set with an array which disabled saturday and sunday.
           Sunday is considered the first day of the week and thus has the value 0</p>`,
         outlet: DemoDatepickerDaysDisabledComponent
+      },
+      {
+        title: 'Dates disabled',
+        anchor: 'dates-disabled',
+        component: require('!!raw-loader?lang=typescript!./demos/disable-dates/disable-dates.ts'),
+        html: require('!!raw-loader?lang=markup!./demos/disable-dates/disable-dates.html'),
+        description: `
+          <p>You can set which dates should be disabled with <code>datesDisabled</code></p>
+          <p>In the following example <code>datesDisabled</code> is set with an array to disable 2019-02-05 and 2019-02-09.</p>`,
+        outlet: DemoDatepickerDatesDisabledComponent
       },
       {
         title: 'Min-mode',
@@ -264,6 +285,14 @@ export const demoComponentContent: ContentSection[] = [
         outlet: DemoDatePickerSelectDatesFromOtherMonthsComponent
       },
       {
+        title: 'Select week',
+        anchor: 'select-week',
+        component: require('!!raw-loader?lang=typescript!./demos/select-week/select-week.ts'),
+        html: require('!!raw-loader?lang=markup!./demos/select-week/select-week.html'),
+        description: `<p>You can enable ability to select a week number (first day of the week will be selected) via <code>selectWeek</code> option in <code>bsConfig</code></p>`,
+        outlet: DemoDatePickerSelectWeekComponent
+      },
+      {
         title: 'Outside click',
         anchor: 'outside-click',
         component: require('!!raw-loader?lang=typescript!./demos/outside-click/outside-click.ts'),
@@ -304,6 +333,11 @@ export const demoComponentContent: ContentSection[] = [
       {
         title: 'BsDaterangepickerDirective',
         anchor: 'bs-daterangepicker',
+        outlet: NgApiDocComponent
+      },
+      {
+        title: 'BsDatepickerInlineDirective',
+        anchor: 'bs-datepicker-inline',
         outlet: NgApiDocComponent
       },
       {

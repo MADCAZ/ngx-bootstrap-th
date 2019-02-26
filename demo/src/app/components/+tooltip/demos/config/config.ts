@@ -6,7 +6,8 @@ import { TooltipConfig } from 'ngx-bootstrap-th/tooltip';
 export function getAlertConfig(): TooltipConfig {
   return Object.assign(new TooltipConfig(), {
     placement: 'right',
-    container: 'body'
+    container: 'body',
+    delay: 500
   });
 }
 

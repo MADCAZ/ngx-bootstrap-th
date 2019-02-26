@@ -1,6 +1,5 @@
 import { Component, Output, TemplateRef } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap-th/modal';
-import { BsModalRef } from 'ngx-bootstrap-th/modal/bs-modal-ref.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap-th/modal';
 
 @Component({
   selector: 'demo-modal-scrolling-long-content',

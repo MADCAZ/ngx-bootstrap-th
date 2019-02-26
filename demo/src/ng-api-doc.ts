@@ -659,6 +659,67 @@ export const ngdoc: any = {
     "methods": [],
     "properties": []
   },
+  "BsDatepickerInlineDirective": {
+    "fileName": "src/datepicker/bs-datepicker-inline.component.ts",
+    "className": "BsDatepickerInlineDirective",
+    "description": "",
+    "selector": "bs-datepicker-inline",
+    "exportAs": "bsDatepickerInline",
+    "inputs": [
+      {
+        "name": "bsConfig",
+        "type": "Partial<BsDatepickerInlineConfig>",
+        "description": "<p>Config object for datepicker</p>\n"
+      },
+      {
+        "name": "bsValue",
+        "type": "Date",
+        "description": "<p>Initial value of datepicker</p>\n"
+      },
+      {
+        "name": "datesDisabled",
+        "type": "Date[]",
+        "description": "<p>Disable specific dates</p>\n"
+      },
+      {
+        "name": "isDisabled",
+        "type": "boolean",
+        "description": "<p>Indicates whether datepicker is enabled or not</p>\n"
+      },
+      {
+        "name": "maxDate",
+        "type": "Date",
+        "description": "<p>Maximum date which is available for selection</p>\n"
+      },
+      {
+        "name": "minDate",
+        "type": "Date",
+        "description": "<p>Minimum date which is available for selection</p>\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bsValueChange",
+        "description": "<p>Emits when datepicker value has been changed</p>\n"
+      }
+    ],
+    "properties": [],
+    "methods": [
+      {
+        "name": "setConfig",
+        "description": "<p>Set config for datepicker</p>\n",
+        "args": [],
+        "returnType": "void"
+      }
+    ]
+  },
+  "BsDatepickerInlineConfig": {
+    "fileName": "src/datepicker/bs-datepicker-inline.config.ts",
+    "className": "BsDatepickerInlineConfig",
+    "description": "",
+    "methods": [],
+    "properties": []
+  },
   "BsDatepickerInputDirective": {
     "fileName": "src/datepicker/bs-datepicker-input.directive.ts",
     "className": "BsDatepickerInputDirective",
@@ -691,6 +752,11 @@ export const ngdoc: any = {
         "defaultValue": "body",
         "type": "string",
         "description": "<p>A selector specifying the element the datepicker should be appended to.\nCurrently only supports &quot;body&quot;.</p>\n"
+      },
+      {
+        "name": "datesDisabled",
+        "type": "Date[]",
+        "description": "<p>Disable specific dates</p>\n"
       },
       {
         "name": "daysDisabled",
@@ -807,6 +873,11 @@ export const ngdoc: any = {
         "description": "<p>Add class to current day</p>\n"
       },
       {
+        "name": "datesDisabled",
+        "type": "Date[]",
+        "description": "<p>Disable specific dates</p>\n"
+      },
+      {
         "name": "maxDate",
         "type": "Date",
         "description": "<p>Default max date for all date/range pickers</p>\n"
@@ -819,7 +890,7 @@ export const ngdoc: any = {
       {
         "name": "minMode",
         "type": "BsDatepickerViewMode",
-        "description": "<p>Defaut mode for all date pickers</p>\n"
+        "description": "<p>Default mode for all date pickers</p>\n"
       },
       {
         "name": "rangeInputFormat",
@@ -829,6 +900,11 @@ export const ngdoc: any = {
       },
       {
         "name": "selectFromOtherMonth",
+        "type": "boolean",
+        "description": "<p>Makes dates from other months active</p>\n"
+      },
+      {
+        "name": "selectWeek",
         "type": "boolean",
         "description": "<p>Makes dates from other months active</p>\n"
       },
@@ -872,6 +948,11 @@ export const ngdoc: any = {
         "defaultValue": "body",
         "type": "string",
         "description": "<p>A selector specifying the element the daterangepicker should be appended\nto. Currently only supports &quot;body&quot;.</p>\n"
+      },
+      {
+        "name": "datesDisabled",
+        "type": "Date[]",
+        "description": "<p>Disable specific dates</p>\n"
       },
       {
         "name": "isDisabled",
@@ -1543,6 +1624,16 @@ export const ngdoc: any = {
     "properties": [],
     "methods": []
   },
+  "BsDatepickerInlineContainerComponent": {
+    "fileName": "src/datepicker/themes/bs/bs-datepicker-inline-container.component.ts",
+    "className": "BsDatepickerInlineContainerComponent",
+    "description": "",
+    "selector": "bs-datepicker-inline-container",
+    "inputs": [],
+    "outputs": [],
+    "properties": [],
+    "methods": []
+  },
   "BsDatepickerNavigationViewComponent": {
     "fileName": "src/datepicker/themes/bs/bs-datepicker-navigation-view.component.ts",
     "className": "BsDatepickerNavigationViewComponent",
@@ -1598,6 +1689,10 @@ export const ngdoc: any = {
     "outputs": [
       {
         "name": "onHover",
+        "description": ""
+      },
+      {
+        "name": "onHoverWeek",
         "description": ""
       },
       {
@@ -3096,6 +3191,12 @@ export const ngdoc: any = {
         "description": "<p>a selector specifying the element the tooltip should be appended to. Currently only supports &quot;body&quot; </p>\n"
       },
       {
+        "name": "delay",
+        "defaultValue": "0",
+        "type": "number",
+        "description": "<p>delay before showing the tooltip </p>\n"
+      },
+      {
         "name": "placement",
         "defaultValue": "top",
         "type": "string",
@@ -3351,7 +3452,7 @@ export const ngdoc: any = {
       {
         "name": "typeaheadOptionsLimit",
         "type": "number",
-        "description": "<p>maximum length of options items list </p>\n"
+        "description": "<p>maximum length of options items list. The default value is 20 </p>\n"
       },
       {
         "name": "typeaheadPhraseDelimiters",
