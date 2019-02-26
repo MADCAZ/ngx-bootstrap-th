@@ -63,8 +63,12 @@ export abstract class BaseComponent {
     cy.get(`${baseSelector} button`).eq(buttonIndex ? buttonIndex : 0).trigger('mouseleave');
   }
 
-  isInputHaveAttrs(baseSelector: string, attributes: AttrObj[]) {
-    cy.get(`${baseSelector} input`)
+  mouseMove(baseSelector: string, elementIndex?: number) {
+    cy.get(baseSelector).eq(elementIndex ? elementIndex : 0).trigger('mouseenter');
+  }
+
+  isInputHaveAttrs(baseSelector: string, attributes: AttrObj[], inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex)
       .then(input => {
         let i = 0;
         for (; i < attributes.length; i++) {
@@ -73,8 +77,26 @@ export abstract class BaseComponent {
       });
   }
 
-  clearInputAndSendKeys(baseSelector: string, dataToSend: string) {
-    cy.get(`${baseSelector} input`).clear().type(dataToSend);
+  isInputValueEqual(baseSelector: string, expectedTxt: string, inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex).should('to.have.value', expectedTxt);
+  }
+
+  isInputValueContain(baseSelector: string, expectedTxt: string, inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex).then(input => {
+      expect(input.val()).to.contains(expectedTxt);
+    });
+  }
+
+  clearInputAndSendKeys(baseSelector: string, dataToSend: string, inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex).clear().type(dataToSend);
+  }
+
+  clearInput(baseSelector: string, inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex).clear();
+  }
+
+  clickEnterOnInput(baseSelector: string, inputIndex = 0) {
+    cy.get(`${baseSelector} input`).eq(inputIndex).type('{enter}');
   }
 
   isDemoContainsTxt(baseSelector: string, expectedTxt: string, expectedTxtOther?: string) {
@@ -85,13 +107,76 @@ export abstract class BaseComponent {
       });
   }
 
-  isButtonExist(baseSelector: string, buttonName: string, buttonNumber?: number) {
+  isButtonExist(baseSelector: string, buttonName: string, buttonNumber?: number, exist = true) {
+    if (exist === true) {
     cy.get(`${baseSelector} button`).eq(buttonNumber ? buttonNumber : 0).invoke('text')
       .should(btnTxt => expect(btnTxt).to.equal(buttonName));
+  } else {
+      cy.get(`${baseSelector} button`).contains(buttonName).should('not.exist');
+    }
+  }
+
+  isSelectExist(baseSelector: string, selectText: string, selectNumber = 0) {
+    cy.get(`${baseSelector} select`).eq(selectNumber).invoke('text')
+      .should(btnTxt => expect(btnTxt).to.contain(selectText));
+  }
+
+  selectOne(baseSelector: string, selectToChose: string, selectNumber = 0) {
+    cy.get(`${baseSelector} select`).eq(selectNumber).select(selectToChose);
   }
 
   isPreviewExist(baseSelector: string, previewText: string, previewNumber?: number) {
     cy.get(`${baseSelector} .card.card-block`).eq(previewNumber ? previewNumber : 0).invoke('text')
       .should(btnTxt => expect(btnTxt).to.contain(previewText));
+  }
+
+  clickOutside(baseSelector: string) {
+    cy.get(baseSelector).eq(0).trigger('click', { clientX: 100, clientY: 100 });
+  }
+  
+  clickCheckbox(baseSelector: string, shouldBeChecked: boolean) {
+    if (shouldBeChecked) {
+      cy.get(`${baseSelector} input[type="checkbox"]`)
+        .check();
+    } else {
+      cy.get(`${baseSelector} input[type="checkbox"]`)
+        .uncheck();
+    }
+  }
+
+  isPreviewHidden(baseSelector: string, previewNumber?: number) {
+    if (!previewNumber) {
+      cy.get(`${baseSelector} .card.card-block`).should('not.exist');
+    } else {
+      cy.get(`${baseSelector} .card.card-block`).eq(previewNumber).should('not.exist');
+    }
+  }
+
+  isTemplateSrcContain(demoName: string, expectedTxt: string) {
+    cy.get('examples h3')
+      .contains(demoName)
+      .parent()
+      .find('tab[heading*="template"]')
+      .invoke('text')
+      .should('to.contains', expectedTxt);
+  }
+
+  isCodePreviewExist(baseSelector: string, previewText: string, exist = true, previewNumber?: number) {
+    if (exist) {
+    cy.get(`${baseSelector} .code-preview`).eq(previewNumber ? previewNumber : 0).invoke('text')
+      .should(btnTxt => expect(btnTxt).to.contain(previewText));
+    } else {
+      cy.get(`${baseSelector} .code-preview`)
+        .should('not.exist');
+    }
+  }
+
+  isComponentSrcContain(demoName: string, expectedTxt: string) {
+    cy.get('examples h3')
+      .contains(demoName)
+      .parent()
+      .find('tab[heading*="component"]')
+      .invoke('text')
+      .should('to.contains', expectedTxt);
   }
 }
