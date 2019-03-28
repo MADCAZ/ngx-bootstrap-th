@@ -32,7 +32,7 @@ export function formatDate(date: Date, format: string, locale?: string, isUTC?: 
 // format date using native date object
 export function formatMoment(date: Date, _format: string, locale: Locale, isUTC?: boolean, offset = 0): string {
   if (!isDateValid(date)) {
-    return locale.invalidDate;
+    return null;
   }
 
   const format = expandFormat(_format, locale);
