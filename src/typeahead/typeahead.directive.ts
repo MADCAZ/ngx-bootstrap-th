@@ -21,6 +21,7 @@ import { TypeaheadContainerComponent } from './typeahead-container.component';
 import { TypeaheadMatch } from './typeahead-match.class';
 import { TypeaheadConfig } from './typeahead.config';
 import { getValueFromObject, latinize, tokenize } from './typeahead-utils';
+import { PositioningService } from 'ngx-bootstrap/positioning';
 import { debounceTime, filter, mergeMap, switchMap, toArray } from 'rxjs/operators';
 
 @Directive({selector: '[typeahead]', exportAs: 'bs-typeahead'})
@@ -35,6 +36,8 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
    * list of options (limited as normal by typeaheadOptionsLimit)
    */
   @Input() typeaheadMinLength: number = void 0;
+  /** sets use adaptive position */
+  @Input() adaptivePosition: boolean;
   /** minimal wait time after last character typed before typeahead kicks-in */
   @Input() typeaheadWaitMs: number;
   /** maximum length of options items list. The default value is 20 */
@@ -91,6 +94,8 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
    * If value equal false, it will be chosen an active item in the list or nothing
    */
   @Input() typeaheadSelectFirstItem = true;
+  /** makes active first item in a list */
+  @Input() typeaheadIsFirstItemActive = true;
   /** fired when 'busy' state of this component was changed,
    * fired on async mode only, returns boolean
    */
@@ -102,12 +107,11 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
   /** fired when option was selected, return object with data of this option */
   @Output() typeaheadOnSelect = new EventEmitter<TypeaheadMatch>();
   /** fired when blur event occurs. returns the active item */
-    // tslint:disable-next-line:no-any
+  // tslint:disable-next-line:no-any
   @Output() typeaheadOnBlur = new EventEmitter<any>();
 
   /**
    * A selector specifying the element the typeahead should be appended to.
-   * Currently only supports "body".
    */
   @Input() container: string;
 
@@ -142,13 +146,16 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
   private _outsideClickListener: Function;
 
-  constructor(private ngControl: NgControl,
-              private element: ElementRef,
-              viewContainerRef: ViewContainerRef,
-              private renderer: Renderer2,
-              config: TypeaheadConfig,
-              cis: ComponentLoaderFactory,
-              private changeDetection: ChangeDetectorRef) {
+  constructor(
+    cis: ComponentLoaderFactory,
+    config: TypeaheadConfig,
+    private changeDetection: ChangeDetectorRef,
+    private element: ElementRef,
+    private ngControl: NgControl,
+    private positionService: PositioningService,
+    private renderer: Renderer2,
+    viewContainerRef: ViewContainerRef
+  ) {
 
     this._typeahead = cis.createLoader<TypeaheadContainerComponent>(
       element,
@@ -158,10 +165,14 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
       .provide({ provide: TypeaheadConfig, useValue: config });
 
     Object.assign(this,
-      { typeaheadHideResultsOnBlur: config.hideResultsOnBlur,
-               typeaheadSelectFirstItem: config.selectFirstItem,
-               typeaheadMinLength: config.minLength
-      });
+      {
+        typeaheadHideResultsOnBlur: config.hideResultsOnBlur,
+        typeaheadSelectFirstItem: config.selectFirstItem,
+        typeaheadIsFirstItemActive: config.isFirstItemActive,
+        typeaheadMinLength: config.minLength,
+        adaptivePosition: config.adaptivePosition
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -242,6 +253,14 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
 
         return;
       }
+
+      // enter
+      /* tslint:disable-next-line: deprecation */
+      if (event.keyCode === 13 || event.key === 'Enter') {
+        this._container.selectActiveMatch();
+
+        return;
+      }
     }
   }
 
@@ -298,6 +317,14 @@ export class TypeaheadDirective implements OnInit, OnDestroy {
   }
 
   show(): void {
+    this.positionService.setOptions({
+      modifiers: {
+        flip: {
+          enabled: this.adaptivePosition
+        }
+      }
+    });
+
     this._typeahead
       .attach(TypeaheadContainerComponent)
       // todo: add append to body, after updating positioning service

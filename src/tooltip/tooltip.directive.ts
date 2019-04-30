@@ -12,10 +12,13 @@ import {
   TemplateRef,
   ViewContainerRef
 } from '@angular/core';
+
 import { TooltipContainerComponent } from './tooltip-container.component';
 import { TooltipConfig } from './tooltip.config';
 import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
 import { OnChange, warnOnce, parseTriggers } from 'ngx-bootstrap-th/utils';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
+
 import { timer } from 'rxjs';
 
 let id = 0;
@@ -49,7 +52,6 @@ export class TooltipDirective implements OnInit, OnDestroy {
   @Input() triggers: string;
   /**
    * A selector specifying the element the tooltip should be appended to.
-   * Currently only supports "body".
    */
   @Input() container: string;
   /**
@@ -202,10 +204,11 @@ export class TooltipDirective implements OnInit, OnDestroy {
   private _tooltip: ComponentLoader<TooltipContainerComponent>;
   constructor(
     _viewContainerRef: ViewContainerRef,
-    private _renderer: Renderer2,
-    private _elementRef: ElementRef,
     cis: ComponentLoaderFactory,
-    config: TooltipConfig
+    config: TooltipConfig,
+    private _elementRef: ElementRef,
+    private _renderer: Renderer2,
+    private _positionService: PositioningService
   ) {
 
     this._tooltip = cis
@@ -222,6 +225,14 @@ export class TooltipDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this._positionService.setOptions({
+      modifiers: {
+        flip: {
+          enabled: true
+        }
+      }
+    });
+
     this._tooltip.listen({
       triggers: this.triggers,
       show: () => this.show()
