@@ -21,7 +21,7 @@ import { TypeaheadContainerComponent } from './typeahead-container.component';
 import { TypeaheadMatch } from './typeahead-match.class';
 import { TypeaheadConfig } from './typeahead.config';
 import { getValueFromObject, latinize, tokenize } from './typeahead-utils';
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 import { debounceTime, filter, mergeMap, switchMap, toArray } from 'rxjs/operators';
 
 @Directive({selector: '[typeahead]', exportAs: 'bs-typeahead'})

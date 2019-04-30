@@ -35,4 +35,4 @@ export {
   thLocale,
   trLocale,
   zhCnLocale
-} from 'ngx-bootstrap/chronos';
+} from 'ngx-bootstrap-th/chronos';

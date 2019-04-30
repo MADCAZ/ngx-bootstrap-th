@@ -5,7 +5,7 @@ import {
 import { PopoverConfig } from './popover.config';
 import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
 import { PopoverContainerComponent } from './popover-container.component';
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
 /**
  * A lightweight, extensible directive for fancy popover creation.

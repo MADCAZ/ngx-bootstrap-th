@@ -1,4 +1,4 @@
-import { isBs3 } from 'ngx-bootstrap/utils';
+import { isBs3 } from 'ngx-bootstrap-th/utils';
 import { NgxModuleData } from './app.module';
 
 export function getIndexHtmlCode(tag: string, component: NgxModuleData) {

@@ -1,5 +1,5 @@
 import { DatepickerPo } from '../../support/datepicker.po';
-import { formatDate } from 'ngx-bootstrap/chronos';
+import { formatDate } from 'ngx-bootstrap-th/chronos';
 
 describe('Datepicker demo test suite: Config properties', () => {
   const datepicker = new DatepickerPo();
