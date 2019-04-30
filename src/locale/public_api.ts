@@ -8,6 +8,7 @@ export { enGbLocale } from 'ngx-bootstrap-th/chronos';
 export { esDoLocale } from 'ngx-bootstrap-th/chronos';
 export { esLocale } from 'ngx-bootstrap-th/chronos';
 export { esUsLocale } from 'ngx-bootstrap-th/chronos';
+export { etLocale } from 'ngx-bootstrap-th/chronos';
 export { fiLocale } from 'ngx-bootstrap-th/chronos';
 export { frLocale } from 'ngx-bootstrap-th/chronos';
 export { glLocale } from 'ngx-bootstrap-th/chronos';
