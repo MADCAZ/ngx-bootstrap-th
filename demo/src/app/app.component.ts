@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { AfterContentInit, Component, Inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, UrlSerializer } from '@angular/router';
 import { PageScrollService } from 'ngx-page-scroll-core';
-import { isBs3 } from 'ngx-bootstrap/utils';
+import { isBs3 } from 'ngx-bootstrap-th/utils';
 
 import { Analytics } from './docs/api-docs/analytics/analytics';
 import { filter } from 'rxjs/operators';

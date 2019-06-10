@@ -25,9 +25,9 @@ import { hasNgModuleImport } from '../utils/ng-module-imports';
 
 
 const bootstrapStylePath =  `./node_modules/bootstrap/dist/css/bootstrap.min.css`;
-const datePickerStylePath =  `./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css`;
+const datePickerStylePath =  `./node_modules/ngx-bootstrap-th/datepicker/bs-datepicker.css`;
 const datepickerComponentName = 'datepicker';
-const bsName = 'ngx-bootstrap';
+const bsName = 'ngx-bootstrap-th';
 
 const components: { [key: string]: { moduleName: string; link: string; animated?: boolean } } = {
   accordion:   { moduleName: 'AccordionModule',    link: `${bsName}/accordion`, animated: true },

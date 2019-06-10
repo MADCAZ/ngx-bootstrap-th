@@ -10,8 +10,8 @@ import {
   ViewChildren
 } from '@angular/core';
 
-import { isBs3, Utils } from 'ngx-bootstrap/utils';
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { isBs3, Utils } from 'ngx-bootstrap-th/utils';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
 import { latinize } from './typeahead-utils';
 import { TypeaheadMatch } from './typeahead-match.class';

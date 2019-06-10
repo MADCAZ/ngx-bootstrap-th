@@ -43,7 +43,7 @@ describe('ng-add schematic', () => {
         const dependencies = packageJson.dependencies;
 
         expect(dependencies.bootstrap).toBeDefined();
-        expect(dependencies['ngx-bootstrap']).toBeDefined();
+        expect(dependencies['ngx-bootstrap-th']).toBeDefined();
 
         expect(Object.keys(dependencies)).toEqual(Object.keys(dependencies).sort(),
           'Expected the modified "dependencies" to be sorted alphabetically.');

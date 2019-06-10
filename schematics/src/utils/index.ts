@@ -127,7 +127,7 @@ export function createTestApp(runner: SchematicTestRunner, appOptions = {}): Obs
     .pipe(
       switchMap((workspaceTree: any) => {
         return runner.runExternalSchematicAsync('@schematics/angular', 'application',
-          {...appOptions, name: 'ngx-bootstrap'}, workspaceTree);
+          {...appOptions, name: 'ngx-bootstrap-th'}, workspaceTree);
       })
     );
 }

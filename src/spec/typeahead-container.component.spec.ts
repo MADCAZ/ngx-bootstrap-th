@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { TestBed, ComponentFixture, tick, fakeAsync } from '@angular/core/testing';
 
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
 import {
   TypeaheadConfig,

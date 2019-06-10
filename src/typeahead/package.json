@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/typeahead",
+  "name": "ngx-bootstrap-th/typeahead",
   "version": "5.0.0",
   "description": "Native Angular Bootstrap Components",
   "private": true,
