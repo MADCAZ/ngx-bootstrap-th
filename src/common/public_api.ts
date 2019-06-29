@@ -33,6 +33,7 @@ export { AlertComponent, AlertConfig, AlertModule } from 'ngx-bootstrap-th/alert
 export {
   ButtonCheckboxDirective,
   ButtonRadioDirective,
+  ButtonRadioGroupDirective,
   ButtonsModule
 } from 'ngx-bootstrap-th/buttons';
 
@@ -46,12 +47,26 @@ export {
 export { CollapseDirective, CollapseModule } from 'ngx-bootstrap-th/collapse';
 
 export {
+  BsDatepickerConfig,
+  BsDatepickerContainerComponent,
+  BsDatepickerDirective,
+  BsDatepickerInlineContainerComponent,
+  BsDatepickerInlineDirective,
+  BsDatepickerInputDirective,
+  BsDatepickerModule,
+  BsDaterangepickerConfig,
+  BsDaterangepickerContainerComponent,
+  BsDaterangepickerDirective,
+  BsDaterangepickerInputDirective,
+  BsLocaleService,
   DateFormatter,
   DatePickerComponent,
   DatepickerConfig,
+  DatePickerInnerComponent,
   DatepickerModule,
   DayPickerComponent,
   MonthPickerComponent,
+<<<<<<< HEAD
   YearPickerComponent,
   BsDatepickerModule,
   BsDatepickerConfig,
@@ -60,6 +75,10 @@ export {
   BsDaterangepickerDirective,
   BsDatepickerDirective
 } from 'ngx-bootstrap-th/datepicker';
+=======
+  YearPickerComponent
+} from 'ngx-bootstrap/datepicker';
+>>>>>>> development
 
 export {
   ModalDirective,
