@@ -66,19 +66,8 @@ export {
   DatepickerModule,
   DayPickerComponent,
   MonthPickerComponent,
-<<<<<<< HEAD
-  YearPickerComponent,
-  BsDatepickerModule,
-  BsDatepickerConfig,
-  BsDaterangepickerConfig,
-  BsLocaleService,
-  BsDaterangepickerDirective,
-  BsDatepickerDirective
-} from 'ngx-bootstrap-th/datepicker';
-=======
   YearPickerComponent
-} from 'ngx-bootstrap/datepicker';
->>>>>>> development
+} from 'ngx-bootstrap-th/datepicker';
 
 export {
   ModalDirective,

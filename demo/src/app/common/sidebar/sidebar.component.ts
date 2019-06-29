@@ -1,11 +1,8 @@
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-<<<<<<< HEAD
-import { Component, Inject, OnDestroy, Renderer } from '@angular/core';
-import { isBs3, setTheme } from 'ngx-bootstrap-th/utils';
-=======
 import { Component, Inject, OnDestroy, Renderer2 } from '@angular/core';
->>>>>>> development
 import { DOCUMENT } from '@angular/common';
+
+import { isBs3, setTheme } from 'ngx-bootstrap-th/utils';
 import { routes } from '../../app.routing';
 import { StyleManager } from '../../theme/style-manager';
 import { ThemeStorage } from '../../theme/theme-storage';
