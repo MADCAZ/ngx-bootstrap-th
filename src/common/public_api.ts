@@ -67,7 +67,7 @@ export {
   DayPickerComponent,
   MonthPickerComponent,
   YearPickerComponent
-} from 'ngx-bootstrap-th/datepicker';
+} from 'ngx-bootstrap-th/datepicker'; 
 
 export {
   ModalDirective,
