@@ -25,7 +25,7 @@
     "flow.github-release": "conventional-github-releaser -p angular",
     "build": "run-s build.modules build:schematics build.sass dist-to-modules compiler-cli:fix",
     "compiler-cli:fix": "scripts/ivy/compiler-cli-fix.sh",
-    "dist-to-modules": "cp -r -T ./dist ./node_modules/ngx-bootstrap-th",
+    "dist-to-modules": "cp -R ./dist/. ./node_modules/ngx-bootstrap-th",
     "build.watch": "node scripts/build-modules --watch",
     "build:schematics": "node scripts/schematics/build",
     "build.modules": "node scripts/build-modules",
