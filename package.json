@@ -1,6 +1,6 @@
 {
   "name": "ngx-bootstrap-base-th",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "Native Angular Bootstrap Components",
   "private": true,
   "scripts": {
@@ -130,6 +130,7 @@
     "bootstrap": "4.2.1",
     "chai": "4.1.2",
     "classlist-polyfill": "1.2.0",
+    "web-animations-js": "2.3.2",
     "codecov": "3.1.0",
     "codelyzer": "5.0.1",
     "compression": "1.7.2",
