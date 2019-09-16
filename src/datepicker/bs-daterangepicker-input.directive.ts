@@ -175,6 +175,9 @@ export class BsDaterangepickerInputDirective
             return parseDate(_val, this._picker._config.dateInputFormat, this._localeService.currentLocale);
           }
         )
+        .map((date: Date): Date =>  {
+            return this.convertValueOnBuddhistYear(date, this._localeService.currentLocale)
+        })
         .map((date: Date) => (isNaN(date.valueOf()) ? null : date));
     }
 
@@ -209,4 +212,13 @@ export class BsDaterangepickerInputDirective
     this._picker.hide();
     this._renderer.selectRootElement(this._elRef.nativeElement).blur();
   }
+
+  private convertValueOnBuddhistYear(_value: Date, _currentLocale: string): Date {
+    if (_currentLocale == 'th') {
+      const dateProcess = new Date(_value);
+      if (dateProcess.getFullYear() > 2200) 
+      return new Date(dateProcess.getFullYear() - 543, dateProcess.getMonth(), dateProcess.getDate());
+    }
+    return _value;
+}
 }

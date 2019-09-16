@@ -145,12 +145,7 @@ export class BsDatepickerInputDirective
       }
 
       this._value = parseDate(value, this._picker._config.dateInputFormat, this._localeService.currentLocale);
-      if (this._localeService.currentLocale == 'th') {
-                const dateProcess = new Date(this._value);
-                if (dateProcess.getFullYear() > 2200) {
-                    this._value = new Date(dateProcess.getFullYear() - 543, dateProcess.getMonth(), dateProcess.getDate());
-                }
-            }
+      this._value = this.convertValueOnBuddhistYear(this._value, this._localeService.currentLocale);
 
       if (isUtc) {
         this._value = utcAsLocal(this._value);
@@ -185,5 +180,14 @@ export class BsDatepickerInputDirective
   hide() {
     this._picker.hide();
     this._renderer.selectRootElement(this._elRef.nativeElement).blur();
+  }
+
+  private convertValueOnBuddhistYear(_value: Date, _currentLocale: string): Date {
+      if (_currentLocale == 'th') {
+        const dateProcess = new Date(_value);
+        if (dateProcess.getFullYear() > 2200) 
+        return new Date(dateProcess.getFullYear() - 543, dateProcess.getMonth(), dateProcess.getDate());
+      }
+      return _value;
   }
 }
