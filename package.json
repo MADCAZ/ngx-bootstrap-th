@@ -1,6 +1,6 @@
 {
   "name": "ngx-bootstrap-base-th",
-  "version": "5.1.2",
+  "version": "5.2.0",
   "description": "Native Angular Bootstrap Components",
   "private": true,
   "scripts": {
@@ -24,8 +24,7 @@
     "disable-lint": "tslint \"**/*.ts\" -c tslint.json --fix --type-check -t prose -e \"node_modules/**\" -e \"dist/**\" -e \"temp/**\" -e \"scripts/docs/**\"",
     "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "flow.github-release": "conventional-github-releaser -p angular",
-    "build": "run-s build.modules build:schematics build.sass dist-to-modules compiler-cli:fix",
-    "compiler-cli:fix": "scripts/ivy/compiler-cli-fix.sh",
+    "build": "run-s build.modules build:schematics build.sass dist-to-modules",
     "dist-to-modules": "cp -R ./dist/. ./node_modules/ngx-bootstrap-th",
     "build.watch": "node scripts/build-modules --watch",
     "build:schematics": "node scripts/schematics/build",

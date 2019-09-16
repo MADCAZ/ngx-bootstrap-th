@@ -15,8 +15,9 @@ import {
 
 import { TooltipContainerComponent } from './tooltip-container.component';
 import { TooltipConfig } from './tooltip.config';
+
 import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
-import { OnChange, warnOnce, parseTriggers } from 'ngx-bootstrap-th/utils';
+import { OnChange, warnOnce, parseTriggers, Trigger } from 'ngx-bootstrap-th/utils';
 import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
 import { timer } from 'rxjs';
@@ -305,11 +306,17 @@ export class TooltipDirective implements OnInit, OnDestroy {
       });
 
       if (this.triggers) {
-        const triggers = parseTriggers(this.triggers);
-        this._tooltipCancelShowFn = this._renderer.listen(this._elementRef.nativeElement, triggers[0].close, () => {
-          _timer.unsubscribe();
-          cancelDelayedTooltipShowing();
-        });
+        parseTriggers(this.triggers)
+          .forEach((trigger: Trigger) => {
+            this._tooltipCancelShowFn = this._renderer.listen(
+              this._elementRef.nativeElement,
+              trigger.close,
+              () => {
+                _timer.unsubscribe();
+                cancelDelayedTooltipShowing();
+              }
+            );
+          });
       }
     } else {
       showTooltip();

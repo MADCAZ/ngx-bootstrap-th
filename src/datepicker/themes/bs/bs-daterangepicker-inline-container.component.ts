@@ -1,16 +1,16 @@
-import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { BsDatepickerContainerComponent } from './bs-datepicker-container.component';
+import { OnInit, OnDestroy, ElementRef, Component, Renderer2 } from '@angular/core';
+import { BsDaterangepickerContainerComponent } from './bs-daterangepicker-container.component';
 
 import { BsDatepickerActions } from '../../reducer/bs-datepicker.actions';
 import { BsDatepickerConfig } from '../../bs-datepicker.config';
 import { BsDatepickerEffects } from '../../reducer/bs-datepicker.effects';
 import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
 
-import { PositioningService } from 'ngx-bootstrap-th/positioning';
+import { PositioningService } from 'ngx-bootstrap/positioning';
 import { datepickerAnimation } from '../../datepicker-animations';
 
 @Component({
-  selector: 'bs-datepicker-inline-container',
+  selector: 'bs-daterangepicker-inline-container',
   providers: [BsDatepickerStore, BsDatepickerEffects],
   templateUrl: './bs-datepicker-view.html',
   host: {
@@ -18,7 +18,7 @@ import { datepickerAnimation } from '../../datepicker-animations';
   },
   animations: [datepickerAnimation]
 })
-export class BsDatepickerInlineContainerComponent extends BsDatepickerContainerComponent
+export class BsDaterangepickerInlineContainerComponent extends BsDaterangepickerContainerComponent
   implements OnInit, OnDestroy {
 
   constructor(
