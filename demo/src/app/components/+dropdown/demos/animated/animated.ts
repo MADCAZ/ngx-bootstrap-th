@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { BsDropdownConfig } from 'ngx-bootstrap-th/dropdown';
 
 @Component({
   selector: 'demo-dropdown-animation',
