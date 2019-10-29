@@ -99,7 +99,7 @@ export class BsDatepickerInputDirective
 
   onChange(event: Event) {
     /* tslint:disable-next-line: no-any*/
-    this.writeValue((event.target as any).value, false);
+    this.writeValue((event.target as any).value);
     this._onChange(this._value);
     this._onTouched();
   }
@@ -132,7 +132,7 @@ export class BsDatepickerInputDirective
     this._validatorChange = fn;
   }
 
-  writeValue(value: Date | string, isUtc = true) {
+  writeValue(value: Date | string) {
     if (!value) {
       this._value = null;
     } else {
@@ -147,7 +147,7 @@ export class BsDatepickerInputDirective
       this._value = parseDate(value, this._picker._config.dateInputFormat, this._localeService.currentLocale);
       this._value = this.convertValueOnBuddhistYear(this._value, this._localeService.currentLocale);
 
-      if (isUtc) {
+      if (this._picker._config.useUtc) {
         this._value = utcAsLocal(this._value);
       }
     }
