@@ -70,10 +70,24 @@ export class BsDaterangepickerInputDirective
               private changeDetection: ChangeDetectorRef) {
     // update input value on datepicker value update
     this._picker.bsValueChange.subscribe((value: Date[]) => {
-      this._setInputValue(value);
-      if (this._value !== value) {
-        this._value = value;
-        this._onChange(value);
+
+      let preValue = value;
+
+      if (value) {
+        const _localeKey = this._localeService.currentLocale;
+        const _locale = getLocale(_localeKey);
+        if (!_locale) {
+          throw new Error(
+            `Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`
+          );
+        }
+        preValue = value.map(v => _locale.preinput(v));
+      }
+
+      this._setInputValue(preValue);
+      if (this._value !== preValue) {
+        this._value = preValue;
+        this._onChange(preValue);
         this._onTouched();
       }
       this.changeDetection.markForCheck();
@@ -113,10 +127,14 @@ export class BsDaterangepickerInputDirective
 
   validate(c: AbstractControl): ValidationErrors | null {
     const _value: [Date, Date] = c.value;
+    const errors: object[] = [];
 
     if (_value === null || _value === undefined || !isArray(_value)) {
       return null;
     }
+
+    // @ts-ignore
+    _value.sort((a, b) => a - b);
 
     const _isFirstDateValid = isDateValid(_value[0]);
     const _isSecondDateValid = isDateValid(_value[1]);
@@ -130,11 +148,18 @@ export class BsDaterangepickerInputDirective
     }
 
     if (this._picker && this._picker.minDate && isBefore(_value[0], this._picker.minDate, 'date')) {
-      return { bsDate: { minDate: this._picker.minDate } };
+      _value[0] = this._picker.minDate;
+      errors.push({ bsDate: { minDate: this._picker.minDate } });
     }
 
     if (this._picker && this._picker.maxDate && isAfter(_value[1], this._picker.maxDate, 'date')) {
-      return { bsDate: { maxDate: this._picker.maxDate } };
+      _value[1] = this._picker.maxDate;
+      errors.push({ bsDate: { maxDate: this._picker.maxDate } });
+    }
+    if (errors.length > 0) {
+      this.writeValue(_value);
+
+      return errors;
     }
   }
 
@@ -162,7 +187,6 @@ export class BsDaterangepickerInputDirective
       if (Array.isArray(value)) {
         _input = value;
       }
-
 
       this._value = (_input as string[])
         .map((_val: string): Date => {
