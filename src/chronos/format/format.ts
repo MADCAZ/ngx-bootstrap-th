@@ -55,19 +55,17 @@ export function makeFormatFunction(format: string):
             : removeFormattingTokens(array[i]);
     }
 
+
     return function (date: Date, locale: Locale, isUTC: boolean, offset = 0): string {
-
-        const postValue = locale.postvalue(date);
-
+        
         let output = '';
         for (let j = 0; j < length; j++) {
-            output += isFunction(formatArr[j])
-              ? (formatArr[j] as DateFormatterFn).call(null, postValue, {format, locale, isUTC, offset})
-              : formatArr[j];
+          output += isFunction(formatArr[j])
+            ? (formatArr[j] as DateFormatterFn).call(null, date, {format, locale, isUTC, offset})
+            : formatArr[j];
         }
 
         let year = date.getFullYear();
-
         if (locale._abbr == 'th') {
             output = output.replace(/BBBB/g, (year + 543).toString());
             output = output.replace(/BB/g, ((year + 543).toString()).substr((year + 543).toString().length -2));
