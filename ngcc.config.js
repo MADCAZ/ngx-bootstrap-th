@@ -1,6 +1,6 @@
 module.exports = {
   packages: {
-    'ngx-bootstrap': {
+    'ngx-bootstrap-th': {
       entryPoints: { './dist': { ignore: true, } },
     },
   }

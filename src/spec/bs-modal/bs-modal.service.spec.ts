@@ -1,6 +1,6 @@
 import { StaticProvider } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
 import { EMPTY } from 'rxjs';
 
 import { BsModalService, ModalOptions } from '../../modal/index';

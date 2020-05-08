@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { TypeaheadMatch } from 'ngx-bootstrap-th/typeahead';
 import { mergeMap, delay } from 'rxjs/operators';
-import { TypeaheadConfig } from 'ngx-bootstrap/typeahead';
+import { TypeaheadConfig } from 'ngx-bootstrap-th/typeahead';
 
 export function getTypeaheadConfig(): TypeaheadConfig {
   return Object.assign(new TypeaheadConfig(), { cancelRequestOnFocusLost: true });

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PagesModel } from 'ngx-bootstrap/pagination';
+import { PagesModel } from 'ngx-bootstrap-th/pagination';
 
 @Component({
   selector: 'demo-pagination-custom-template',
