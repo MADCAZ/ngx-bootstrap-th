@@ -26,6 +26,14 @@ function createFromConfig(config: DateParsingConfig): DateParsingConfig {
     res._nextDay = undefined;
   }*/
 
+  // fix leap year on buddhist
+  if (res._l == 'th' && res._a[0] > 2500 && !res._isValid && res._a[1] == 1 && 
+  ((((res._a[0] - 543) % 4 == 0) && ((res._a[0] - 543) % 100 != 0)) || ((res._a[0] - 543) % 400 == 0))) {
+    res._d = new Date(res._a[0] - 543, res._a[1], res._a[2]);
+    res._a[0] = res._a[0] - 543;
+    res._isValid = true;
+  }
+
   return res;
 }
 
