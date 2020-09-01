@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatepickerDateTooltipText } from 'ngx-bootstrap/datepicker';
+import { DatepickerDateTooltipText } from 'ngx-bootstrap-th/datepicker';
 
 @Component({
   selector: 'demo-datepicker-tooltip-to-selected-dates',

@@ -3,8 +3,8 @@ import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Renderer2 } fro
 import { take } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import { getFullYear, getMonth } from 'ngx-bootstrap/chronos';
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { getFullYear, getMonth } from 'ngx-bootstrap-th/chronos';
+import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
 import { BsDatepickerAbstractComponent } from '../../base/bs-datepicker-container';
 import { BsDatepickerConfig } from '../../bs-datepicker.config';

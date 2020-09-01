@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ComponentLoaderFactory } from 'ngx-bootstrap-th/component-loader';
 import { PositioningService } from 'ngx-bootstrap-th/positioning';
 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from 'ngx-bootstrap-th/tooltip';
 
 import { BsDatepickerInputDirective } from './bs-datepicker-input.directive';
 import { BsDatepickerDirective } from './bs-datepicker.component';
