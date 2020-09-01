@@ -35,7 +35,7 @@ export class ComponentLoader<T> {
   onShown: EventEmitter<any> = new EventEmitter();
   /* tslint:disable-next-line: no-any*/
   onBeforeHide: EventEmitter<any> = new EventEmitter();
-  onHidden: EventEmitter<boolean> = new EventEmitter();
+  onHidden: EventEmitter<any> = new EventEmitter();
 
   instance: T;
   _componentRef: ComponentRef<T>;
@@ -99,7 +99,7 @@ export class ComponentLoader<T> {
     private _ngZone: NgZone,
     private _applicationRef: ApplicationRef,
     private _posService: PositioningService
-  ) {}
+  ) { }
 
   attach(compType: Type<T>): ComponentLoader<T> {
     this._componentFactory = this._componentFactoryResolver
@@ -140,6 +140,7 @@ export class ComponentLoader<T> {
     initialState?: any;
     /* tslint:disable-next-line: no-any*/
     [key: string]: any;
+    id?: number|string;
   } = {}
   ): ComponentRef<T> {
 
@@ -198,7 +199,9 @@ export class ComponentLoader<T> {
       }
       this._componentRef.changeDetectorRef.markForCheck();
       this._componentRef.changeDetectorRef.detectChanges();
-      this.onShown.emit(this._componentRef.instance);
+
+
+      this.onShown.emit(opts.id ? { id: opts.id } : this._componentRef.instance);
     }
 
     this._registerOutsideClick();
@@ -206,7 +209,7 @@ export class ComponentLoader<T> {
     return this._componentRef;
   }
 
-  hide(): ComponentLoader<T> {
+  hide(id?: number|string): ComponentLoader<T> {
     if (!this._componentRef) {
       return this;
     }
@@ -220,7 +223,7 @@ export class ComponentLoader<T> {
     if (this._contentRef.componentRef) {
       this._contentRef.componentRef.destroy();
     }
-    this._componentRef.destroy();
+
     if (this._viewContainerRef && this._contentRef.viewRef) {
       this._viewContainerRef.remove(
         this._viewContainerRef.indexOf(this._contentRef.viewRef)
@@ -234,7 +237,7 @@ export class ComponentLoader<T> {
     this._componentRef = null;
     this._removeGlobalListener();
 
-    this.onHidden.emit();
+    this.onHidden.emit(id ? { id } : null);
 
     return this;
   }

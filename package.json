@@ -1,6 +1,6 @@
 {
   "name": "ngx-bootstrap-base-th",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Native Angular Bootstrap Components",
   "private": true,
   "scripts": {
@@ -24,10 +24,13 @@
     "flow.changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "flow.github-release": "conventional-github-releaser -p angular",
     "build": "run-s build.modules build:schematics build.sass",
+    "build.windows": "run-s build-modules.windows build:schematics build.sass",
     "build.latest": "run-s build-modules.latest build:schematics build.sass",
     "dist-to-modules": "cp -R ./dist/. ./node_modules/ngx-bootstrap-th",
+    "dist-to-modules.windows": "mkdir .\\node_modules\\ngx-bootstrap-th & xcopy .\\dist\\. .\\node_modules\\ngx-bootstrap-th /s /y",
     "dist-to-modules.deploy": "rsync -R ./dist/. ./node_modules/ngx-bootstrap-th",
     "build.watch": "node scripts/build-modules --watch",
+    "build-modules.windows": "node scripts/build-modules --windows",
     "build-modules.latest": "node scripts/build-modules --latest",
     "build:schematics": "node scripts/schematics/build",
     "build.modules": "node scripts/build-modules",

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   DatepickerRenderOptions,
   BsDatepickerViewMode,
-  DatepickerDateCustomClasses
+  DatepickerDateCustomClasses,
+  DatepickerDateTooltipText
 } from './models';
 import { BsCustomDates } from './themes/bs/bs-custom-dates-view.component';
 
@@ -11,7 +12,9 @@ import { BsCustomDates } from './themes/bs/bs-custom-dates-view.component';
  * For date range picker there are `BsDaterangepickerConfig` which inherits all properties,
  * except `displayMonths`, for range picker it default to `2`
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BsDatepickerConfig implements DatepickerRenderOptions {
   /** sets use adaptive position */
   adaptivePosition = false;
@@ -33,6 +36,10 @@ export class BsDatepickerConfig implements DatepickerRenderOptions {
    * Default date custom classes for all date/range pickers
    */
   dateCustomClasses: DatepickerDateCustomClasses[];
+  /**
+   * Default tooltip text for all date/range pickers
+   */
+  dateTooltipTexts?: DatepickerDateTooltipText[];
   /**
    * Disable specific days, e.g. [0,6] will disable all Saturdays and Sundays
    */
@@ -111,6 +118,11 @@ export class BsDatepickerConfig implements DatepickerRenderOptions {
    */
   ranges?: BsCustomDates[];
 
+  /**
+   * Max Date Range in days
+   */
+  maxDateRange?: number;
+
   // DatepickerFormatOptions
   monthTitle = 'MMMM';
   yearTitle = 'YYYY';
@@ -123,8 +135,19 @@ export class BsDatepickerConfig implements DatepickerRenderOptions {
    * Shows 'today' button
    */
   showTodayButton = false;
+
+  /**
+   * Shows clear button
+   */
+  showClearButton = false;
+
   /**
    * Positioning of 'today' button
    */
   todayPosition = 'center';
+
+  /**
+   * Positioning of 'clear' button
+   */
+  clearPosition = 'right';
 }
